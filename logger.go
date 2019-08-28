@@ -120,7 +120,6 @@ func Logf(level logrus.Level, group, code int, format string, args ...interface{
 		Group: group,
 		Code:  code,
 	}).Logf(level, format, args...)
-
 }
 
 func Trace(group, code int, message string) {
@@ -129,7 +128,6 @@ func Trace(group, code int, message string) {
 
 func Tracef(group, code int, format string, args ...interface{}) {
 	Logf(logrus.TraceLevel, group, code, format, args...)
-
 }
 
 func Debug(group, code int, message string) {
@@ -138,7 +136,6 @@ func Debug(group, code int, message string) {
 
 func Debugf(group, code int, format string, args ...interface{}) {
 	Logf(logrus.DebugLevel, group, code, format, args...)
-
 }
 
 func Info(group, code int, message string) {
@@ -147,7 +144,6 @@ func Info(group, code int, message string) {
 
 func Infof(group, code int, format string, args ...interface{}) {
 	Logf(logrus.InfoLevel, group, code, format, args...)
-
 }
 
 func Warn(group, code int, message string) {
@@ -156,7 +152,6 @@ func Warn(group, code int, message string) {
 
 func Warnf(group, code int, format string, args ...interface{}) {
 	Logf(logrus.WarnLevel, group, code, format, args...)
-
 }
 
 func Error(group, code int, message string) {
@@ -165,7 +160,6 @@ func Error(group, code int, message string) {
 
 func Errorf(group, code int, format string, args ...interface{}) {
 	Logf(logrus.ErrorLevel, group, code, format, args...)
-
 }
 
 func Panic(group, code int, message string) {
@@ -174,7 +168,6 @@ func Panic(group, code int, message string) {
 
 func Panicf(group, code int, format string, args ...interface{}) {
 	Logf(logrus.PanicLevel, group, code, format, args...)
-
 }
 
 func Fatal(group, code int, message string) {
@@ -183,5 +176,4 @@ func Fatal(group, code int, message string) {
 
 func Fatalf(group, code int, format string, args ...interface{}) {
 	Logf(logrus.FatalLevel, group, code, format, args...)
-
 }

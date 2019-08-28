@@ -17,10 +17,12 @@ type Entry struct {
 	Data    map[string]string
 }
 
+var logRe = regexp.MustCompile(`(?mU)\[(.*)\]`)
+var logDataRe = regexp.MustCompile(`(?mU)(.+)="(.+)"`)
+
 func ParseLog(log string) (Entry, error) {
 	var entry Entry
-	var re = regexp.MustCompile(`(?mU)\[(.*)\]`)
-	params := re.FindAllStringSubmatch(log, -1)
+	params := logRe.FindAllStringSubmatch(log, -1)
 	if len(params) != 6 {
 		return Entry{}, errors.New("invalid string format")
 	}
@@ -43,9 +45,7 @@ func ParseLog(log string) (Entry, error) {
 	entry.Message = params[4][1]
 
 	entry.Data = map[string]string{}
-	var dataRe = regexp.MustCompile(`(?mU)(.+)="(.+)"`)
-
-	for _, match := range dataRe.FindAllStringSubmatch(params[5][1], -1) {
+	for _, match := range logDataRe.FindAllStringSubmatch(params[5][1], -1) {
 		key := strings.TrimSpace(match[1])
 		entry.Data[key] = match[2]
 	}
