@@ -11,7 +11,6 @@ import (
 type Entry struct {
 	Time    time.Time
 	Level   string
-	Group   int
 	Code    int
 	Message string
 	Data    map[string]string
@@ -23,7 +22,7 @@ var logDataRe = regexp.MustCompile(`(?mU)(.+)="(.+)"`)
 func ParseLog(log string) (Entry, error) {
 	var entry Entry
 	params := logRe.FindAllStringSubmatch(log, -1)
-	if len(params) != 6 {
+	if len(params) != 5 {
 		return Entry{}, errors.New("invalid string format")
 	}
 	ti, err := time.Parse(FullDateFormat, params[0][1])
@@ -36,16 +35,11 @@ func ParseLog(log string) (Entry, error) {
 	if err != nil {
 		return Entry{}, err
 	}
-	entry.Group = i
-	i, err = strconv.Atoi(params[3][1])
-	if err != nil {
-		return Entry{}, err
-	}
 	entry.Code = i
-	entry.Message = params[4][1]
+	entry.Message = params[3][1]
 
 	entry.Data = map[string]string{}
-	for _, match := range logDataRe.FindAllStringSubmatch(params[5][1], -1) {
+	for _, match := range logDataRe.FindAllStringSubmatch(params[4][1], -1) {
 		key := strings.TrimSpace(match[1])
 		entry.Data[key] = match[2]
 	}

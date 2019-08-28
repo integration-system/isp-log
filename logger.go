@@ -38,142 +38,138 @@ func WithMetadata(metadata Metadata) *Metadata {
 	return &metadata
 }
 
-func (m *Metadata) Log(level logrus.Level, group, code int, message string) {
+func (m *Metadata) Log(level logrus.Level, code int, message string) {
 	fields := logrus.Fields(*m)
-	fields[Group] = group
 	fields[Code] = code
 	logger.WithFields(fields).Log(level, message)
 }
 
-func (m *Metadata) Logf(level logrus.Level, group, code int, format string, args ...interface{}) {
+func (m *Metadata) Logf(level logrus.Level, code int, format string, args ...interface{}) {
 	fields := logrus.Fields(*m)
-	fields[Group] = group
 	fields[Code] = code
 	logger.WithFields(fields).Logf(level, format, args...)
 }
 
-func (m *Metadata) Trace(group, code int, message string) {
-	m.Log(logrus.TraceLevel, group, code, message)
+func (m *Metadata) Trace(code int, message string) {
+	m.Log(logrus.TraceLevel, code, message)
 }
 
-func (m *Metadata) Tracef(group, code int, format string, args ...interface{}) {
-	m.Logf(logrus.TraceLevel, group, code, format, args...)
+func (m *Metadata) Tracef(code int, format string, args ...interface{}) {
+	m.Logf(logrus.TraceLevel, code, format, args...)
 }
 
-func (m *Metadata) Debug(group, code int, message string) {
-	m.Log(logrus.DebugLevel, group, code, message)
+func (m *Metadata) Debug(code int, message string) {
+	m.Log(logrus.DebugLevel, code, message)
 }
 
-func (m *Metadata) Debugf(group, code int, format string, args ...interface{}) {
-	m.Logf(logrus.DebugLevel, group, code, format, args...)
+func (m *Metadata) Debugf(code int, format string, args ...interface{}) {
+	m.Logf(logrus.DebugLevel, code, format, args...)
 }
 
-func (m *Metadata) Info(group, code int, message string) {
-	m.Log(logrus.InfoLevel, group, code, message)
+func (m *Metadata) Info(code int, message string) {
+	m.Log(logrus.InfoLevel, code, message)
 }
 
-func (m *Metadata) Infof(group, code int, format string, args ...interface{}) {
-	m.Logf(logrus.InfoLevel, group, code, format, args...)
+func (m *Metadata) Infof(code int, format string, args ...interface{}) {
+	m.Logf(logrus.InfoLevel, code, format, args...)
 }
 
-func (m *Metadata) Warn(group, code int, message string) {
-	m.Log(logrus.WarnLevel, group, code, message)
+func (m *Metadata) Warn(code int, message string) {
+	m.Log(logrus.WarnLevel, code, message)
 }
 
-func (m *Metadata) Warnf(group, code int, format string, args ...interface{}) {
-	m.Logf(logrus.WarnLevel, group, code, format, args...)
+func (m *Metadata) Warnf(code int, format string, args ...interface{}) {
+	m.Logf(logrus.WarnLevel, code, format, args...)
 }
 
-func (m *Metadata) Error(group, code int, message string) {
-	m.Log(logrus.ErrorLevel, group, code, message)
+func (m *Metadata) Error(code int, message string) {
+	m.Log(logrus.ErrorLevel, code, message)
 }
 
-func (m *Metadata) Errorf(group, code int, format string, args ...interface{}) {
-	m.Logf(logrus.ErrorLevel, group, code, format, args...)
+func (m *Metadata) Errorf(code int, format string, args ...interface{}) {
+	m.Logf(logrus.ErrorLevel, code, format, args...)
 }
 
-func (m *Metadata) Panic(group, code int, message string) {
-	m.Log(logrus.PanicLevel, group, code, message)
+func (m *Metadata) Panic(code int, message string) {
+	m.Log(logrus.PanicLevel, code, message)
 }
 
-func (m *Metadata) Panicf(group, code int, format string, args ...interface{}) {
-	m.Logf(logrus.PanicLevel, group, code, format, args...)
+func (m *Metadata) Panicf(code int, format string, args ...interface{}) {
+	m.Logf(logrus.PanicLevel, code, format, args...)
 }
 
-func (m *Metadata) Fatal(group, code int, message string) {
-	m.Log(logrus.FatalLevel, group, code, message)
+func (m *Metadata) Fatal(code int, message string) {
+	m.Log(logrus.FatalLevel, code, message)
 }
 
-func (m *Metadata) Fatalf(group, code int, format string, args ...interface{}) {
-	m.Logf(logrus.FatalLevel, group, code, format, args...)
+func (m *Metadata) Fatalf(code int, format string, args ...interface{}) {
+	m.Logf(logrus.FatalLevel, code, format, args...)
 }
 
-func Log(level logrus.Level, group, code int, message string) {
+func Log(level logrus.Level, code int, message string) {
 	logger.WithFields(logrus.Fields{
-		Group: group,
-		Code:  code,
+		Code: code,
 	}).Log(level, message)
 }
 
-func Logf(level logrus.Level, group, code int, format string, args ...interface{}) {
+func Logf(level logrus.Level, code int, format string, args ...interface{}) {
 	logger.WithFields(logrus.Fields{
-		Group: group,
-		Code:  code,
+		Code: code,
 	}).Logf(level, format, args...)
 }
 
-func Trace(group, code int, message string) {
-	Log(logrus.TraceLevel, group, code, message)
+func Trace(code int, message string) {
+	Log(logrus.TraceLevel, code, message)
 }
 
-func Tracef(group, code int, format string, args ...interface{}) {
-	Logf(logrus.TraceLevel, group, code, format, args...)
+func Tracef(code int, format string, args ...interface{}) {
+	Logf(logrus.TraceLevel, code, format, args...)
 }
 
-func Debug(group, code int, message string) {
-	Log(logrus.DebugLevel, group, code, message)
+func Debug(code int, message string) {
+	Log(logrus.DebugLevel, code, message)
 }
 
-func Debugf(group, code int, format string, args ...interface{}) {
-	Logf(logrus.DebugLevel, group, code, format, args...)
+func Debugf(code int, format string, args ...interface{}) {
+	Logf(logrus.DebugLevel, code, format, args...)
 }
 
-func Info(group, code int, message string) {
-	Log(logrus.InfoLevel, group, code, message)
+func Info(code int, message string) {
+	Log(logrus.InfoLevel, code, message)
 }
 
-func Infof(group, code int, format string, args ...interface{}) {
-	Logf(logrus.InfoLevel, group, code, format, args...)
+func Infof(code int, format string, args ...interface{}) {
+	Logf(logrus.InfoLevel, code, format, args...)
 }
 
-func Warn(group, code int, message string) {
-	Log(logrus.WarnLevel, group, code, message)
+func Warn(code int, message string) {
+	Log(logrus.WarnLevel, code, message)
 }
 
-func Warnf(group, code int, format string, args ...interface{}) {
-	Logf(logrus.WarnLevel, group, code, format, args...)
+func Warnf(code int, format string, args ...interface{}) {
+	Logf(logrus.WarnLevel, code, format, args...)
 }
 
-func Error(group, code int, message string) {
-	Log(logrus.ErrorLevel, group, code, message)
+func Error(code int, message string) {
+	Log(logrus.ErrorLevel, code, message)
 }
 
-func Errorf(group, code int, format string, args ...interface{}) {
-	Logf(logrus.ErrorLevel, group, code, format, args...)
+func Errorf(code int, format string, args ...interface{}) {
+	Logf(logrus.ErrorLevel, code, format, args...)
 }
 
-func Panic(group, code int, message string) {
-	Log(logrus.PanicLevel, group, code, message)
+func Panic(code int, message string) {
+	Log(logrus.PanicLevel, code, message)
 }
 
-func Panicf(group, code int, format string, args ...interface{}) {
-	Logf(logrus.PanicLevel, group, code, format, args...)
+func Panicf(code int, format string, args ...interface{}) {
+	Logf(logrus.PanicLevel, code, format, args...)
 }
 
-func Fatal(group, code int, message string) {
-	Log(logrus.FatalLevel, group, code, message)
+func Fatal(code int, message string) {
+	Log(logrus.FatalLevel, code, message)
 }
 
-func Fatalf(group, code int, format string, args ...interface{}) {
-	Logf(logrus.FatalLevel, group, code, format, args...)
+func Fatalf(code int, format string, args ...interface{}) {
+	Logf(logrus.FatalLevel, code, format, args...)
 }
