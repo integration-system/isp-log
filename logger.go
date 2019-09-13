@@ -100,10 +100,12 @@ func (m *Metadata) Panicf(code int, format string, args ...interface{}) {
 
 func (m *Metadata) Fatal(code int, message string) {
 	m.Log(logrus.FatalLevel, code, message)
+	os.Exit(-1)
 }
 
 func (m *Metadata) Fatalf(code int, format string, args ...interface{}) {
 	m.Logf(logrus.FatalLevel, code, format, args...)
+	os.Exit(-1)
 }
 
 func Log(level logrus.Level, code int, message string) {
@@ -168,8 +170,10 @@ func Panicf(code int, format string, args ...interface{}) {
 
 func Fatal(code int, message string) {
 	Log(logrus.FatalLevel, code, message)
+	os.Exit(-1)
 }
 
 func Fatalf(code int, format string, args ...interface{}) {
 	Logf(logrus.FatalLevel, code, format, args...)
+	os.Exit(-1)
 }
