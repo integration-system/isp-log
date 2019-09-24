@@ -21,4 +21,5 @@ const (
 	ConfigServiceDisconnection         = 68
 	ConfigServiceConnectionError       = 69
 	RemoteConfigIsNotReceivedByTimeout = 70
+	ConfigServiceInvalidDataReceived   = 71
 )
