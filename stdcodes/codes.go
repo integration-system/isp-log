@@ -6,8 +6,9 @@ const (
 
 	InitializingDbError = 53
 
-	ModuleRunFatalError  = 54
-	ModuleManualShutdown = 56
+	ModuleRunFatalError      = 54
+	ModuleManualShutdown     = 56
+	ModuleDefaultRCReadError = 57
 
 	ConfigServiceSendConfigSchema = 61
 	ConfigServiceSendRequirements = 62
