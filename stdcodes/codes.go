@@ -14,6 +14,7 @@ const (
 	ModuleGrpcServiceStartError     = 42
 	ModuleGrpcServiceManualShutdown = 43
 	ModuleInternalHttpServiceError  = 44
+	ModuleMetricServiceError        = 45
 
 	ReceiveErrorFromConfig                = 51
 	ReceiveErrorOnGettingConfigFromConfig = 52
