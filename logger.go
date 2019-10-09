@@ -32,8 +32,20 @@ func SetLevel(level string) error {
 	return nil
 }
 
+func GetLevel() logrus.Level {
+	return logger.Level
+}
+
 func SetOutput(output io.Writer) {
 	logger.SetOutput(output)
+}
+
+func GetOutput() io.Writer {
+	return logger.Out
+}
+
+func IsLevelEnabled(level logrus.Level) bool {
+	return logger.IsLevelEnabled(level)
 }
 
 func WithMetadata(metadata Metadata) *Metadata {
