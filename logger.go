@@ -9,13 +9,15 @@ import (
 type Metadata logrus.Fields
 
 var (
-	logger *logrus.Logger
+	logger    *logrus.Logger
+	isColored = checkIfTerminal(os.Stdout)
 )
 
 func init() {
+	formatter := new(Formatter)
 	logger = &logrus.Logger{
 		Out:          os.Stdout,
-		Formatter:    new(Formatter),
+		Formatter:    formatter,
 		Hooks:        make(logrus.LevelHooks),
 		Level:        logrus.InfoLevel,
 		ExitFunc:     os.Exit,
@@ -46,6 +48,10 @@ func GetOutput() io.Writer {
 
 func IsLevelEnabled(level logrus.Level) bool {
 	return logger.IsLevelEnabled(level)
+}
+
+func SetColored(colored bool) {
+	isColored = colored
 }
 
 func WithMetadata(metadata Metadata) *Metadata {
