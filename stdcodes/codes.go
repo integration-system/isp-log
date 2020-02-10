@@ -21,6 +21,10 @@ const (
 
 	InitializingDbError = 53
 
+	InitializingRabbitMqError = 54
+	RabbitMqClientError       = 55
+	RabbitMqBlockedConnection = 56
+
 	ConfigServiceSendConfigSchema = 71
 	ConfigServiceSendRequirements = 72
 	ConfigServiceSendModuleReady  = 73
