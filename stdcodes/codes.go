@@ -38,4 +38,9 @@ const (
 	ConfigServiceConnectionError       = 79
 	RemoteConfigIsNotReceivedByTimeout = 80
 	ConfigServiceInvalidDataReceived   = 81
+
+	ProfilingStart          = 82
+	ProfilingStop           = 83
+	ProfilingSendNewProfile = 84
+	ProfilingError          = 85
 )
