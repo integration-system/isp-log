@@ -34,6 +34,7 @@ const (
 	ConfigServiceReceiveRequiredModuleAddress = 76
 
 	ConfigServiceSendDataError         = 77
+	ConfigServiceConnection            = 86
 	ConfigServiceDisconnection         = 78
 	ConfigServiceConnectionError       = 79
 	RemoteConfigIsNotReceivedByTimeout = 80
