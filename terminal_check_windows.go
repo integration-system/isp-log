@@ -1,3 +1,5 @@
+//+build !unix
+
 package log
 
 import (
