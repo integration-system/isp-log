@@ -1,4 +1,4 @@
-//+build !windows
+// +build unix
 
 package log
 

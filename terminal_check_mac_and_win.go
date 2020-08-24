@@ -1,4 +1,4 @@
-//+build !unix
+// +build darwin and windows
 
 package log
 
