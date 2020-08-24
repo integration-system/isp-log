@@ -1,4 +1,4 @@
-// +build darwin and windows
+// +build darwin windows
 
 package log
 
